@@ -73,5 +73,5 @@ modulate = Color(0, 0, 0, 1)
 sprite_frames = SubResource("SpriteFrames_3jfhn")
 animation = &"run_right"
 autoplay = "run_right"
-frame_progress = 0.483013
+frame_progress = 0.531287
 speed_scale = 5.0

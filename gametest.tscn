@@ -23,8 +23,8 @@ position = Vector2(474, 131)
 position = Vector2(587, 670)
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(574, 327)
+position = Vector2(576, 326)
 
 [node name="Egyptian" parent="." instance=ExtResource("6_v6hfr")]
-position = Vector2(732, 567)
+position = Vector2(732, 592)
 scale = Vector2(0.391378, 0.391378)
