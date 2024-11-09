@@ -1,10 +1,11 @@
 extends RigidBody2D
-const SHIP_SPEED = 300
+const SHIP_SPEED = 500
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	lock_rotation = true
 	contact_monitor = true
 	max_contacts_reported = 1
+	set_linear_damp(1)
 	set_continuous_collision_detection_mode(2)
 	set_gravity_scale(0)
 
