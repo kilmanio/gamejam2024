@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://crsojgydks7ji"]
+[gd_scene load_steps=5 format=3 uid="uid://crsojgydks7ji"]
 
 [ext_resource type="Script" path="res://ship.gd" id="1_h6koc"]
 [ext_resource type="Texture2D" uid="uid://uucqdppc5qpk" path="res://icon.svg" id="2_jvr85"]
@@ -6,7 +6,11 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ktt6w"]
 size = Vector2(128, 128)
 
-[node name="ship" type="RigidBody2D"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_b6v5g"]
+radius = 49.0
+height = 158.0
+
+[node name="Ship" type="RigidBody2D"]
 script = ExtResource("1_h6koc")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -15,3 +19,17 @@ flip_v = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_ktt6w")
+
+[node name="Beam" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Beam"]
+position = Vector2(0, 200)
+shape = SubResource("CapsuleShape2D_b6v5g")
+
+[node name="Sprite2D" type="Sprite2D" parent="Beam"]
+modulate = Color(0.647659, 0, 0.317458, 1)
+position = Vector2(0, 199)
+scale = Vector2(0.765625, 1.23438)
+texture = ExtResource("2_jvr85")
+
+[connection signal="body_entered" from="Beam" to="." method="_on_beam_body_entered"]

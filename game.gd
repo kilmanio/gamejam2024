@@ -11,7 +11,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	timeout -= delta
-	if Input.is_action_pressed("ui_accept") && timeout <= 0:
+	if Input.is_action_pressed("ui_text_toggle_insert_mode") && timeout <= 0:
 		spawn_block()
 	
 
