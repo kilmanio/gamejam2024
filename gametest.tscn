@@ -5,18 +5,19 @@
 [ext_resource type="PackedScene" uid="uid://crsojgydks7ji" path="res://ship.tscn" id="2_4bkxq"]
 [ext_resource type="PackedScene" uid="uid://cb1sgodtqtr3y" path="res://scenes/background.tscn" id="2_djvyx"]
 [ext_resource type="PackedScene" uid="uid://b350dganfqht3" path="res://block_spawner.tscn" id="2_pqhjv"]
-[ext_resource type="PackedScene" uid="uid://bn6ctqo42h6id" path="res://scenes/egyptian.tscn" id="6_v6hfr"]
+[ext_resource type="PackedScene" uid="uid://d02xcfbcq82v4" path="res://scenes/egyptian.tscn" id="6_v6hfr"]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_gkpnp")
 
-[node name="Node2D" parent="." instance=ExtResource("2_pqhjv")]
+[node name="BlockSpawner" parent="." instance=ExtResource("2_pqhjv")]
 z_index = 1
-position = Vector2(178, 496)
+position = Vector2(175, 470)
 
 [node name="Background" parent="." instance=ExtResource("2_djvyx")]
 
 [node name="ship" parent="." instance=ExtResource("2_4bkxq")]
+z_index = 3
 position = Vector2(474, 131)
 
 [node name="floor" parent="." instance=ExtResource("1_jda8s")]
