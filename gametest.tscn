@@ -1,14 +1,18 @@
-[gd_scene load_steps=7 format=3 uid="uid://dnsp5txuw6eto"]
+[gd_scene load_steps=8 format=3 uid="uid://dnsp5txuw6eto"]
 
 [ext_resource type="Script" path="res://game.gd" id="1_gkpnp"]
 [ext_resource type="PackedScene" uid="uid://dqy1pwjl8hghv" path="res://floor.tscn" id="1_jda8s"]
 [ext_resource type="PackedScene" uid="uid://crsojgydks7ji" path="res://ship.tscn" id="2_4bkxq"]
 [ext_resource type="PackedScene" uid="uid://cb1sgodtqtr3y" path="res://scenes/background.tscn" id="2_djvyx"]
+[ext_resource type="PackedScene" uid="uid://duoo2ne06rheu" path="res://height_checker.tscn" id="2_l01c5"]
 [ext_resource type="PackedScene" uid="uid://b350dganfqht3" path="res://block_spawner.tscn" id="2_pqhjv"]
 [ext_resource type="PackedScene" uid="uid://d02xcfbcq82v4" path="res://scenes/egyptian.tscn" id="6_v6hfr"]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_gkpnp")
+
+[node name="HeightChecker" parent="." instance=ExtResource("2_l01c5")]
+position = Vector2(0, 100)
 
 [node name="BlockSpawner" parent="." instance=ExtResource("2_pqhjv")]
 z_index = 1

@@ -3,7 +3,7 @@ extends Node
 var scene_to_instance = preload("res://block.tscn")
 var timer = 1
 
-# Called when the node enters the scene tree for the first 4time.
+# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	randomize()
 
