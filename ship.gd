@@ -1,7 +1,6 @@
 extends RigidBody2D
 const SHIP_SPEED = 500
 var beam = false
-var timeout = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -24,21 +23,17 @@ func handle_movement():
 		[false, true]: apply_force(Vector2(0, -SHIP_SPEED))
 
 func handle_beam():
-	if Input.is_action_pressed("ui_select") && timeout <= 0:
-		if beam:
-			$PlayerGFX/TractorBeam.visible = false
-			$Beam.gravity_space_override = false
-			beam = false
-		else:
-			$PlayerGFX/TractorBeam.visible = true
-			$Beam.gravity_space_override = true
-			beam = true
-		
-		timeout = 0.5
+	if Input.is_action_pressed("ui_select"):
+		$PlayerGFX/TractorBeam.visible = true
+		$Beam.gravity_space_override = true
+		beam = true
+	else:
+		$PlayerGFX/TractorBeam.visible = false
+		$Beam.gravity_space_override = false
+		beam = false
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
-	timeout -= delta
-	
 	handle_movement()
 	handle_beam()
