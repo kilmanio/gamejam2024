@@ -1,7 +1,7 @@
 extends Node2D
 
 var scene_to_instance = preload("res://block.tscn")
-var timer = 5
+var timer = 1
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -15,9 +15,9 @@ func _process(delta: float) -> void:
 		timer -= delta
 		
 	if timer <= 0:
+		timer = 5
 		spawn_block()
 
 func spawn_block():
 	var object = scene_to_instance.instantiate()
-	object.position = position
 	call_deferred("add_child",object)
