@@ -1,5 +1,6 @@
-[gd_scene load_steps=39 format=3 uid="uid://d0rjstwyyqvrc"]
+[gd_scene load_steps=40 format=3 uid="uid://d0rjstwyyqvrc"]
 
+[ext_resource type="Script" path="res://scripts/player_gfx.gd" id="1_q1yf7"]
 [ext_resource type="Texture2D" uid="uid://d4jdxxq33icba" path="res://graphics/player/alien.png" id="1_wcvt6"]
 [ext_resource type="Texture2D" uid="uid://86rav1862kmn" path="res://graphics/player/alien_side.png" id="2_c33vq"]
 [ext_resource type="Texture2D" uid="uid://d4ae1yjd8vmfn" path="res://graphics/player/tractor_beam.png" id="2_ulpct"]
@@ -275,6 +276,7 @@ _data = {
 }
 
 [node name="PlayerGFX" type="Node2D"]
+script = ExtResource("1_q1yf7")
 
 [node name="Alien" type="AnimatedSprite2D" parent="."]
 modulate = Color(0, 0.835294, 0.388235, 1)
@@ -283,8 +285,8 @@ scale = Vector2(0.741392, 0.741392)
 sprite_frames = SubResource("SpriteFrames_uj1e1")
 animation = &"idle"
 autoplay = "idle"
-frame = 5
-frame_progress = 0.563694
+frame = 9
+frame_progress = 0.636035
 speed_scale = 5.0
 
 [node name="TractorBeam" type="Sprite2D" parent="."]
