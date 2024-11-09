@@ -147,7 +147,6 @@ texture = SubResource("GradientTexture2D_nmhka")
 [node name="Ground3" type="Sprite2D" parent="."]
 modulate = Color(0.990533, 0.566839, 1.15514e-06, 1)
 position = Vector2(644, 557)
-scale = Vector2(1, 1)
 texture = ExtResource("7_godyt")
 
 [node name="Fog" type="Sprite2D" parent="."]
