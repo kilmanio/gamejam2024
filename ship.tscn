@@ -1,35 +1,27 @@
-[gd_scene load_steps=5 format=3 uid="uid://crsojgydks7ji"]
+[gd_scene load_steps=4 format=3 uid="uid://crsojgydks7ji"]
 
 [ext_resource type="Script" path="res://ship.gd" id="1_h6koc"]
-[ext_resource type="Texture2D" uid="uid://uucqdppc5qpk" path="res://icon.svg" id="2_jvr85"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ktt6w"]
-size = Vector2(128, 128)
+[ext_resource type="PackedScene" uid="uid://d0rjstwyyqvrc" path="res://scenes/player_gfx.tscn" id="2_uqekn"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_b6v5g"]
-radius = 49.0
-height = 158.0
+radius = 174.0
+height = 506.0
 
 [node name="Ship" type="RigidBody2D"]
 script = ExtResource("1_h6koc")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_jvr85")
-flip_v = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_ktt6w")
+[node name="PlayerGFX" parent="." instance=ExtResource("2_uqekn")]
 
 [node name="Beam" type="Area2D" parent="."]
+position = Vector2(0, 336)
+gravity_space_override = 3
+gravity_point = true
+gravity_point_center = Vector2(0, 0)
+gravity_direction = Vector2(0, 0)
+gravity = 1200.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Beam"]
-position = Vector2(0, 200)
 shape = SubResource("CapsuleShape2D_b6v5g")
 
-[node name="Sprite2D" type="Sprite2D" parent="Beam"]
-modulate = Color(0.647659, 0, 0.317458, 1)
-position = Vector2(0, 199)
-scale = Vector2(0.765625, 1.23438)
-texture = ExtResource("2_jvr85")
-
-[connection signal="body_entered" from="Beam" to="." method="_on_beam_body_entered"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-234, -118, -223, -197, -199, -241, -150, -293, -107, -316, -47, -327, 41, -327, 101, -315, 154, -287, 187, -261, 214, -208, 226, -117, 333, -18, 307, 10, 110, 60, -60, 52, -225, 13, -346, -44)

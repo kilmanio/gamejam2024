@@ -5,6 +5,8 @@ var timeout = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	$PlayerGFX/TractorBeam.visible = false
+	$Beam.gravity_space_override = false
 	lock_rotation = true
 	contact_monitor = true
 	max_contacts_reported = 1
@@ -23,7 +25,15 @@ func handle_movement():
 
 func handle_beam():
 	if Input.is_action_pressed("ui_select") && timeout <= 0:
-		beam = !beam
+		if beam:
+			$PlayerGFX/TractorBeam.visible = false
+			$Beam.gravity_space_override = false
+			beam = false
+		else:
+			$PlayerGFX/TractorBeam.visible = true
+			$Beam.gravity_space_override = true
+			beam = true
+		
 		timeout = 0.5
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -32,9 +42,3 @@ func _physics_process(delta: float) -> void:
 	
 	handle_movement()
 	handle_beam()
-
-
-func _on_beam_body_entered(body: Node2D) -> void:
-	if beam:
-		var direction = Vector2(($Beam.position.x - body.position.x)*1000, ($Beam.position.y - body.position.y)*1000)
-		body.apply_force(direction)

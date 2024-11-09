@@ -1,19 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://byjfdv0upj5gs"]
+[gd_scene load_steps=3 format=3 uid="uid://byjfdv0upj5gs"]
 
 [ext_resource type="Script" path="res://block.gd" id="1_y510p"]
-[ext_resource type="Texture2D" uid="uid://uucqdppc5qpk" path="res://icon.svg" id="2_tmrsl"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_u4a1f"]
-size = Vector2(127, 128)
+[ext_resource type="Texture2D" uid="uid://dfu2j5kjyrmqt" path="res://graphics/objects/block1.png" id="2_mgmfs"]
 
 [node name="root" type="RigidBody2D"]
+can_sleep = false
 script = ExtResource("1_y510p")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.5, 0)
-shape = SubResource("RectangleShape2D_u4a1f")
-
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_tmrsl")
+texture = ExtResource("2_mgmfs")
 
-[connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-190, -176, 185, -166, 203, -41, 233, 86, 216, 216, 67, 218, -132, 226, -173, 212, -203, 69)
