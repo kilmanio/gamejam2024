@@ -19,6 +19,6 @@ func _process(delta: float) -> void:
 func spawn_block():
 	var object = scene_to_instance.instantiate()
 	object.position = $ship.position
-	object.position.y += 400
+	object.position.y += 100
 	call_deferred("add_child",object)
 	timeout = 1

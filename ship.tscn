@@ -4,16 +4,17 @@
 [ext_resource type="PackedScene" uid="uid://d0rjstwyyqvrc" path="res://scenes/player_gfx.tscn" id="2_uqekn"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_b6v5g"]
-radius = 174.0
-height = 506.0
+radius = 32.0
+height = 80.0
 
 [node name="Ship" type="RigidBody2D"]
 script = ExtResource("1_h6koc")
 
 [node name="PlayerGFX" parent="." instance=ExtResource("2_uqekn")]
+scale = Vector2(0.2, 0.2)
 
 [node name="Beam" type="Area2D" parent="."]
-position = Vector2(0, 336)
+position = Vector2(0, 70)
 gravity_space_override = 3
 gravity_point = true
 gravity_point_center = Vector2(0, 0)
@@ -24,4 +25,5 @@ gravity = 1200.0
 shape = SubResource("CapsuleShape2D_b6v5g")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+scale = Vector2(0.2, 0.2)
 polygon = PackedVector2Array(-234, -118, -223, -197, -199, -241, -150, -293, -107, -316, -47, -327, 41, -327, 101, -315, 154, -287, 187, -261, 214, -208, 226, -117, 333, -18, 307, 10, 110, 60, -60, 52, -225, 13, -346, -44)

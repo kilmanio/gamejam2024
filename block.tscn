@@ -1,14 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://byjfdv0upj5gs"]
+[gd_scene load_steps=2 format=3 uid="uid://byjfdv0upj5gs"]
 
-[ext_resource type="Script" path="res://block.gd" id="1_y510p"]
 [ext_resource type="Texture2D" uid="uid://dfu2j5kjyrmqt" path="res://graphics/objects/block1.png" id="2_mgmfs"]
 
 [node name="root" type="RigidBody2D"]
 can_sleep = false
-script = ExtResource("1_y510p")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.2, 0.2)
 texture = ExtResource("2_mgmfs")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+scale = Vector2(0.2, 0.2)
 polygon = PackedVector2Array(-190, -176, 185, -166, 203, -41, 233, 86, 216, 216, 67, 218, -132, 226, -173, 212, -203, 69)
