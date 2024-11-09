@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3 uid="uid://duoo2ne06rheu"]
+
+[ext_resource type="Script" path="res://height_checker.gd" id="1_qmbdo"]
+
+[node name="HeightChecker" type="Node2D"]
+script = ExtResource("1_qmbdo")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(2000, 0)
+collision_mask = 2
+
+[node name="Line2D" type="Line2D" parent="."]
+z_index = 2
+points = PackedVector2Array(0, 1, 1409, 1)
+width = 2.0
+default_color = Color(3.85046e-06, 0.637842, 0.100467, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+z_index = 2
+offset_left = 13.0
+offset_right = 53.0
+offset_bottom = 40.0
+text = "Goal"

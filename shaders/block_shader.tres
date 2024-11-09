@@ -1,4 +1,4 @@
-[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://cm4n2bea80wdj"]
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://dkq880aw3sba"]
 
 [ext_resource type="Shader" path="res://shaders/tractor_beam_item.gdshader" id="1_poc3d"]
 [ext_resource type="Texture2D" uid="uid://ckh4cu83v02r0" path="res://graphics/player/tractor_beam_mask.png" id="2_qoqqt"]

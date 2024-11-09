@@ -8,7 +8,7 @@ enum state {IDLE, RIGHT, LEFT}
 func _ready() -> void:
 	shader_param(0.0)
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	lerp_rotation()
 
 func change_state(alien_state):
