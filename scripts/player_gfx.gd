@@ -3,22 +3,24 @@ extends Node2D
 var rotation_value = 0
 var movement_value = 0
 
+enum state {IDLE, RIGHT, LEFT}
+
 func _ready() -> void:
 	shader_param(0.0)
 
 func _process(delta: float) -> void:
-	lerp_rotation(movement_value)
+	lerp_rotation()
 
-func change_sprite(val):
-	match val:
-		0:
+func change_state(alien_state):
+	match alien_state:
+		state.IDLE:
 			$Alien.play("idle")
 			rotation_value = 0
-		1:
+		state.RIGHT:
 			$Alien.play("turn_right")
 			$Alien.flip_h = false
 			rotation_value = 25
-		-1:
+		state.LEFT:
 			$Alien.play("turn_right")
 			$Alien.flip_h = true
 			rotation_value = -35
@@ -37,6 +39,6 @@ func detractor():
 func shader_param(value:float):
 	$TractorBeam.material.set("shader_parameter/dissolve_value", value)
 
-func lerp_rotation(value:int=0):
-	change_sprite(value)
+func lerp_rotation():
+	#change_state()
 	rotation = lerp_angle(rotation, deg_to_rad(rotation_value), 0.1)
