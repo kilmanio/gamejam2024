@@ -1,0 +1,14 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://cm4n2bea80wdj"]
+
+[ext_resource type="Shader" path="res://shaders/tractor_beam_item.gdshader" id="1_poc3d"]
+[ext_resource type="Texture2D" uid="uid://ckh4cu83v02r0" path="res://graphics/player/tractor_beam_mask.png" id="2_qoqqt"]
+
+[resource]
+shader = ExtResource("1_poc3d")
+shader_parameter/base_color = Color(0.841588, 0.825978, 0.792063, 1)
+shader_parameter/color_one = Color(0.348815, 0.866832, 0.792989, 1)
+shader_parameter/color_two = Color(0, 1, 0.862745, 1)
+shader_parameter/speed = 1.0
+shader_parameter/dissolve_value = null
+shader_parameter/is_tractored = false
+shader_parameter/mask_texture = ExtResource("2_qoqqt")

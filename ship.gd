@@ -51,11 +51,10 @@ func _physics_process(delta: float) -> void:
 
 
 func _on_beam_body_entered(body: Node2D) -> void:
-	pass # Replace with function body.
-	body.block_tractored(true)
-	print(body.name)
+	if body.is_in_group("Block"):
+		body.block_tractored(true)
 
 
 func _on_beam_body_exited(body: Node2D) -> void:
-	pass # Replace with function body.
-	body.block_tractored(false)
+	if body.is_in_group("Block"):
+		body.block_tractored(false)

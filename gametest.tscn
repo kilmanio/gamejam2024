@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://dnsp5txuw6eto"]
+[gd_scene load_steps=7 format=3 uid="uid://dnsp5txuw6eto"]
 
 [ext_resource type="Script" path="res://game.gd" id="1_gkpnp"]
 [ext_resource type="PackedScene" uid="uid://dqy1pwjl8hghv" path="res://floor.tscn" id="1_jda8s"]
 [ext_resource type="PackedScene" uid="uid://crsojgydks7ji" path="res://ship.tscn" id="2_4bkxq"]
 [ext_resource type="PackedScene" uid="uid://cb1sgodtqtr3y" path="res://scenes/background.tscn" id="2_djvyx"]
 [ext_resource type="PackedScene" uid="uid://b350dganfqht3" path="res://block_spawner.tscn" id="2_pqhjv"]
+[ext_resource type="PackedScene" uid="uid://bn6ctqo42h6id" path="res://scenes/egyptian.tscn" id="6_v6hfr"]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_gkpnp")
@@ -23,3 +24,7 @@ position = Vector2(587, 670)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(574, 327)
+
+[node name="Egyptian" parent="." instance=ExtResource("6_v6hfr")]
+position = Vector2(732, 567)
+scale = Vector2(0.391378, 0.391378)
