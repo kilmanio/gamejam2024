@@ -1,11 +1,26 @@
-[gd_scene load_steps=2 format=3 uid="uid://byjfdv0upj5gs"]
+[gd_scene load_steps=6 format=3 uid="uid://byjfdv0upj5gs"]
 
+[ext_resource type="Script" path="res://scripts/block_visuals.gd" id="1_8cagb"]
+[ext_resource type="Shader" path="res://shaders/tractor_beam_item.gdshader" id="1_gbef2"]
+[ext_resource type="Texture2D" uid="uid://ckh4cu83v02r0" path="res://graphics/player/tractor_beam_mask.png" id="2_e6eo0"]
 [ext_resource type="Texture2D" uid="uid://dfu2j5kjyrmqt" path="res://graphics/objects/block1.png" id="2_mgmfs"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0i1uu"]
+shader = ExtResource("1_gbef2")
+shader_parameter/base_color = Color(0.841588, 0.825978, 0.792063, 1)
+shader_parameter/color_one = Color(0.348815, 0.866832, 0.792989, 1)
+shader_parameter/color_two = Color(0, 1, 0.862745, 1)
+shader_parameter/speed = 1.0
+shader_parameter/dissolve_value = null
+shader_parameter/is_tractored = false
+shader_parameter/mask_texture = ExtResource("2_e6eo0")
 
 [node name="root" type="RigidBody2D"]
 can_sleep = false
+script = ExtResource("1_8cagb")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_0i1uu")
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("2_mgmfs")
 

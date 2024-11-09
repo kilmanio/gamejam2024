@@ -27,3 +27,6 @@ shape = SubResource("CapsuleShape2D_b6v5g")
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 scale = Vector2(0.2, 0.2)
 polygon = PackedVector2Array(-234, -118, -223, -197, -199, -241, -150, -293, -107, -316, -47, -327, 41, -327, 101, -315, 154, -287, 187, -261, 214, -208, 226, -117, 333, -18, 307, 10, 110, 60, -60, 52, -225, 13, -346, -44)
+
+[connection signal="body_entered" from="Beam" to="." method="_on_beam_body_entered"]
+[connection signal="body_exited" from="Beam" to="." method="_on_beam_body_exited"]

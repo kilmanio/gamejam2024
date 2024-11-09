@@ -47,3 +47,14 @@ func handle_beam():
 func _physics_process(delta: float) -> void:
 	handle_movement()
 	handle_beam()
+
+
+func _on_beam_body_entered(body: Node2D) -> void:
+	pass # Replace with function body.
+	body.block_tractored(true)
+	print(body.name)
+
+
+func _on_beam_body_exited(body: Node2D) -> void:
+	pass # Replace with function body.
+	body.block_tractored(false)
