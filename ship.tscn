@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://crsojgydks7ji"]
+
+[ext_resource type="Script" path="res://ship.gd" id="1_h6koc"]
+[ext_resource type="Texture2D" uid="uid://uucqdppc5qpk" path="res://icon.svg" id="2_jvr85"]
+
+[node name="Node2D" type="CharacterBody2D"]
+script = ExtResource("1_h6koc")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_jvr85")
+flip_v = true
