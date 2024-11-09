@@ -1,17 +1,20 @@
-[gd_scene load_steps=4 format=3 uid="uid://dnsp5txuw6eto"]
+[gd_scene load_steps=5 format=3 uid="uid://dnsp5txuw6eto"]
 
 [ext_resource type="Script" path="res://game.gd" id="1_gkpnp"]
 [ext_resource type="PackedScene" uid="uid://dqy1pwjl8hghv" path="res://floor.tscn" id="1_jda8s"]
 [ext_resource type="PackedScene" uid="uid://crsojgydks7ji" path="res://ship.tscn" id="2_4bkxq"]
+[ext_resource type="PackedScene" uid="uid://cb1sgodtqtr3y" path="res://scenes/background.tscn" id="2_djvyx"]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_gkpnp")
 
+[node name="Background" parent="." instance=ExtResource("2_djvyx")]
+
 [node name="ship" parent="." instance=ExtResource("2_4bkxq")]
-position = Vector2(0, -400)
+position = Vector2(474, 131)
 
 [node name="floor" parent="." instance=ExtResource("1_jda8s")]
-position = Vector2(0, 600)
+position = Vector2(587, 670)
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(0, 100)
+position = Vector2(574, 327)

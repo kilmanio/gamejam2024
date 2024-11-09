@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://cb1sgodtqtr3y"]
+[gd_scene load_steps=21 format=3 uid="uid://cb1sgodtqtr3y"]
 
 [ext_resource type="Texture2D" uid="uid://dot040y4harte" path="res://graphics/background/sun.png" id="1_3lot0"]
 [ext_resource type="Texture2D" uid="uid://c83hftg55mhn5" path="res://graphics/background/ground2.png" id="2_2afyr"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://b44838i2iw22s" path="res://graphics/background/ground.png" id="5_sda8o"]
 [ext_resource type="Texture2D" uid="uid://683j8ks4m7ha" path="res://graphics/background/sphinx.png" id="6_7ohte"]
 [ext_resource type="Texture2D" uid="uid://coduwra6v8km5" path="res://graphics/background/ground3.png" id="7_godyt"]
+[ext_resource type="PackedScene" uid="uid://d0rjstwyyqvrc" path="res://scenes/player_gfx.tscn" id="8_i6p62"]
 
 [sub_resource type="Gradient" id="Gradient_qv7dp"]
 offsets = PackedFloat32Array(0.279221, 0.681818, 1)
@@ -147,6 +148,7 @@ texture = SubResource("GradientTexture2D_nmhka")
 [node name="Ground3" type="Sprite2D" parent="."]
 modulate = Color(0.990533, 0.566839, 1.15514e-06, 1)
 position = Vector2(644, 557)
+scale = Vector2(1, 1)
 texture = ExtResource("7_godyt")
 
 [node name="Fog" type="Sprite2D" parent="."]
@@ -163,3 +165,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("GradientTexture2D_7d8lb")
+
+[node name="PlayerGFX" parent="." instance=ExtResource("8_i6p62")]
+position = Vector2(522, 315)
+scale = Vector2(0.226906, 0.226906)

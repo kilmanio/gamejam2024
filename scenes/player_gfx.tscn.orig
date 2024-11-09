@@ -1,6 +1,11 @@
+<<<<<<< HEAD
 [gd_scene load_steps=40 format=3 uid="uid://d0rjstwyyqvrc"]
 
 [ext_resource type="Script" path="res://scripts/player_gfx.gd" id="1_q1yf7"]
+=======
+[gd_scene load_steps=39 format=3 uid="uid://d0rjstwyyqvrc"]
+
+>>>>>>> main
 [ext_resource type="Texture2D" uid="uid://d4jdxxq33icba" path="res://graphics/player/alien.png" id="1_wcvt6"]
 [ext_resource type="Texture2D" uid="uid://86rav1862kmn" path="res://graphics/player/alien_side.png" id="2_c33vq"]
 [ext_resource type="Texture2D" uid="uid://d4ae1yjd8vmfn" path="res://graphics/player/tractor_beam.png" id="2_ulpct"]
@@ -214,6 +219,8 @@ shader_parameter/dissolve_value = 1.0
 shader_parameter/mask_texture = SubResource("GradientTexture2D_nxtec")
 shader_parameter/dissolve_texture = SubResource("GradientTexture2D_jhmh4")
 
+<<<<<<< HEAD
+=======
 [sub_resource type="Animation" id="Animation_vopkv"]
 length = 0.001
 tracks/0/type = "value"
@@ -241,6 +248,7 @@ tracks/1/keys = {
 "values": [Vector2(1, 1)]
 }
 
+>>>>>>> main
 [sub_resource type="Animation" id="Animation_s1kby"]
 resource_name = "tractor_bounce"
 length = 0.4
@@ -269,6 +277,36 @@ tracks/1/keys = {
 "values": [Vector2(1, 1), Vector2(1, 1.15234), Vector2(1, 0.765625), Vector2(1, 1)]
 }
 
+<<<<<<< HEAD
+[sub_resource type="Animation" id="Animation_vopkv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TractorBeam:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 278)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TractorBeam:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+=======
+>>>>>>> main
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7h2tg"]
 _data = {
 "RESET": SubResource("Animation_vopkv"),
@@ -276,7 +314,10 @@ _data = {
 }
 
 [node name="PlayerGFX" type="Node2D"]
+<<<<<<< HEAD
 script = ExtResource("1_q1yf7")
+=======
+>>>>>>> main
 
 [node name="Alien" type="AnimatedSprite2D" parent="."]
 modulate = Color(0, 0.835294, 0.388235, 1)
@@ -285,8 +326,13 @@ scale = Vector2(0.741392, 0.741392)
 sprite_frames = SubResource("SpriteFrames_uj1e1")
 animation = &"idle"
 autoplay = "idle"
+<<<<<<< HEAD
 frame = 9
 frame_progress = 0.636035
+=======
+frame = 5
+frame_progress = 0.563694
+>>>>>>> main
 speed_scale = 5.0
 
 [node name="TractorBeam" type="Sprite2D" parent="."]
