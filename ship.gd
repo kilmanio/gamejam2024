@@ -18,14 +18,11 @@ func handle_movement():
 		[true, false]: 
 			apply_force(Vector2(-SHIP_SPEED, 0))
 			$PlayerGFX.change_state($PlayerGFX.state.LEFT)
-			
 		[false, true]: 
 			apply_force(Vector2(SHIP_SPEED, 0))
 			$PlayerGFX.change_state($PlayerGFX.state.RIGHT)
-			
 		[false, false]:
 			$PlayerGFX.change_state($PlayerGFX.state.IDLE)
-
 	
 	match [Input.is_action_pressed("ui_down"), Input.is_action_pressed("ui_up")]:
 		[true, false]: apply_force(Vector2(0, SHIP_SPEED))
@@ -51,3 +48,13 @@ func handle_beam():
 func _physics_process(delta: float) -> void:
 	handle_movement()
 	handle_beam()
+
+
+func _on_beam_body_entered(body: Node2D) -> void:
+	if body.is_in_group("Block"):
+		body.block_tractored(true)
+
+
+func _on_beam_body_exited(body: Node2D) -> void:
+	if body.is_in_group("Block"):
+		body.block_tractored(false)

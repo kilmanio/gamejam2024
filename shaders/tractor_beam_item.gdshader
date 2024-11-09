@@ -13,7 +13,7 @@ uniform bool is_tractored = false;
 
 void vertex() {
 	// Called for every vertex the material is visible on.
-	VERTEX += vec2(0, sin(TIME*100.0)*speed);
+	//VERTEX += vec2(0, sin(TIME*100.0)*speed);
 }
 
 void fragment() {

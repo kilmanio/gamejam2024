@@ -1,0 +1,77 @@
+[gd_scene load_steps=11 format=3 uid="uid://bn6ctqo42h6id"]
+
+[ext_resource type="Texture2D" uid="uid://bsc4iuv5or7dy" path="res://graphics/objects/egyptian.png" id="1_uvigw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pmnnr"]
+atlas = ExtResource("1_uvigw")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_is6x4"]
+atlas = ExtResource("1_uvigw")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w7h6t"]
+atlas = ExtResource("1_uvigw")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tb4vs"]
+atlas = ExtResource("1_uvigw")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nesql"]
+atlas = ExtResource("1_uvigw")
+region = Rect2(0, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c1adt"]
+atlas = ExtResource("1_uvigw")
+region = Rect2(128, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m823p"]
+atlas = ExtResource("1_uvigw")
+region = Rect2(256, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0sfvl"]
+atlas = ExtResource("1_uvigw")
+region = Rect2(384, 128, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3jfhn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pmnnr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_is6x4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w7h6t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tb4vs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nesql")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c1adt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m823p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0sfvl")
+}],
+"loop": true,
+"name": &"run_right",
+"speed": 5.0
+}]
+
+[node name="Egyptian" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+modulate = Color(0, 0, 0, 1)
+sprite_frames = SubResource("SpriteFrames_3jfhn")
+animation = &"run_right"
+autoplay = "run_right"
+frame_progress = 0.483013
+speed_scale = 5.0
