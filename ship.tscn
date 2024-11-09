@@ -11,8 +11,7 @@ height = 80.0
 script = ExtResource("1_h6koc")
 
 [node name="PlayerGFX" parent="." instance=ExtResource("2_uqekn")]
-scale = Vector2(0.2, 0.2)
-script = null
+scale = Vector2(0.20185, 0.20185)
 
 [node name="Beam" type="Area2D" parent="."]
 position = Vector2(0, 70)

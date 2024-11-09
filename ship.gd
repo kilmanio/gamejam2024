@@ -17,11 +17,11 @@ func handle_movement():
 	match [Input.is_action_pressed("ui_left"), Input.is_action_pressed("ui_right")]:
 		[true, false]: 
 			apply_force(Vector2(-SHIP_SPEED, 0))
-			#$PlayerGFX.change_state(1)
+			$PlayerGFX.change_state($PlayerGFX.state.LEFT)
 		
 		[false, true]: 
 			apply_force(Vector2(SHIP_SPEED, 0))
-			#$PlayerGFX.change_state(2)
+			$PlayerGFX.change_state($PlayerGFX.state.RIGHT)
 	
 	match [Input.is_action_pressed("ui_down"), Input.is_action_pressed("ui_up")]:
 		[true, false]: apply_force(Vector2(0, SHIP_SPEED))
@@ -29,15 +29,18 @@ func handle_movement():
 
 func handle_beam():
 	if Input.is_action_pressed("ui_select"):
-		$PlayerGFX.tractor()
-		#$PlayerGFX/TractorBeam.visible = true
 		$Beam.gravity_space_override = true
 		beam = true
 	else:
-		$PlayerGFX.detractor()
-		#$PlayerGFX/TractorBeam.visible = false
+		
 		$Beam.gravity_space_override = false
 		beam = false
+	
+	if Input.is_action_just_pressed("ui_select"):
+		$PlayerGFX.tractor()
+	if Input.is_action_just_released("ui_select"):
+		$PlayerGFX.detractor()
+		
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
