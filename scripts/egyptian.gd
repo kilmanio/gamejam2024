@@ -1,6 +1,7 @@
 extends Area2D
 
 var speed = 10
+
 @export var direction = 1
 
 @export var particles : PackedScene
