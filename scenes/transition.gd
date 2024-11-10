@@ -17,6 +17,7 @@ func transition_in(enter_transition_function:Callable=empty, exit_transition_fun
 	tween.tween_callback(enter_transition_function)
 	tween.tween_callback(transition_out.bind(exit_transition_function))
 	tween.tween_callback(tween.kill)
+	AudioManager.play_audio(load("res://audio/swipein.wav"))
 
 func transition_out(exit_transition_function:Callable=empty):
 	triangle.pivot_offset = triangle.size / 2
@@ -27,7 +28,3 @@ func transition_out(exit_transition_function:Callable=empty):
 
 func empty():
 	print("No callable in transition")
-
-func transition_audio():
-	#load audio here and play it on transition in
-	AudioManager.play_audio(load("res://placeholder.mp3"))
