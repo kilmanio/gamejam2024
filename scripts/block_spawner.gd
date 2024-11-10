@@ -44,4 +44,4 @@ func spawn_block():
 	
 	call_deferred("add_child",object)
 	
-	AudioManager.play_audio(load("res://audio/blockspawn.ogg"), -12, false, 0.3)
+	$AudioStreamPlayer.play()
