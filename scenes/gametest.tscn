@@ -28,7 +28,7 @@ z_index = -2
 
 [node name="ship" parent="." instance=ExtResource("5_76c74")]
 z_index = 3
-position = Vector2(474, 131)
+position = Vector2(580, 131)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(576, 326)
