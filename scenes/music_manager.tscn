@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://ddc2r8msi60dw"]
+
+[ext_resource type="Script" path="res://scripts/music_manager.gd" id="1_p01pn"]
+[ext_resource type="AudioStream" uid="uid://v5a40f7vy46t" path="res://audio/Epic OST.ogg" id="2_fyuyx"]
+
+[node name="MusicManager" type="Node"]
+script = ExtResource("1_p01pn")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_fyuyx")
+volume_db = -15.0

@@ -1,6 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://bn6ctqo42h6id"]
+[gd_scene load_steps=14 format=3 uid="uid://bn6ctqo42h6id"]
 
+[ext_resource type="Script" path="res://scripts/egyptian.gd" id="1_amq5g"]
 [ext_resource type="Texture2D" uid="uid://bsc4iuv5or7dy" path="res://graphics/objects/egyptian.png" id="1_uvigw"]
+[ext_resource type="PackedScene" uid="uid://i4uy2jrlwraq" path="res://scenes/death_particles.tscn" id="2_eiiid"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pmnnr"]
 atlas = ExtResource("1_uvigw")
@@ -66,12 +68,24 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Egyptian" type="Node2D"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_tewt5"]
+
+[node name="Egyptian" type="Area2D"]
+script = ExtResource("1_amq5g")
+particles = ExtResource("2_eiiid")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 modulate = Color(0, 0, 0, 1)
+position = Vector2(-1, -28)
 sprite_frames = SubResource("SpriteFrames_3jfhn")
 animation = &"run_right"
 autoplay = "run_right"
 frame_progress = 0.531287
 speed_scale = 5.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, -28)
+scale = Vector2(1.26826, 3.69468)
+shape = SubResource("CircleShape2D_tewt5")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

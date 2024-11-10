@@ -26,7 +26,7 @@ func play_animation():
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if !skipped:
 		await get_tree().create_timer(0.5).timeout
-		Transition.transition_in(hide_story)
+		Transition.transition_in(hide_story, MusicManager.play_music)
 	else:
 		return
 
@@ -36,4 +36,4 @@ func hide_story():
 
 func _on_button_skip_pressed() -> void:
 	skipped = true
-	Transition.transition_in(hide_story)
+	Transition.transition_in(hide_story, MusicManager.play_music)

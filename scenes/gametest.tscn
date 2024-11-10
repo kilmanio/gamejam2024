@@ -47,3 +47,4 @@ shape = SubResource("WorldBoundaryShape2D_f8rxp")
 position = Vector2(1152, 0)
 rotation = -1.5708
 shape = SubResource("WorldBoundaryShape2D_f8rxp")
+

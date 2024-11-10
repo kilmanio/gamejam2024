@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 AudioManager="*res://scripts/audio_manager.gd"
 Transition="*res://scenes/transition.tscn"
+MusicManager="*res://scenes/music_manager.tscn"
 
 [display]
 

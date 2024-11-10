@@ -1,0 +1,40 @@
+[gd_scene load_steps=4 format=3 uid="uid://i4uy2jrlwraq"]
+
+[ext_resource type="Texture2D" uid="uid://btyprv872rp7i" path="res://graphics/objects/nose.svg" id="1_avf6k"]
+[ext_resource type="Script" path="res://scripts/death_particles.gd" id="2_iws0q"]
+
+[sub_resource type="Gradient" id="Gradient_i1ojj"]
+colors = PackedColorArray(1, 0, 0, 1, 1, 1, 1, 0)
+
+[node name="CPUParticles2D" type="CPUParticles2D"]
+emitting = false
+lifetime = 0.4
+one_shot = true
+speed_scale = 2.0
+explosiveness = 0.76
+randomness = 0.24
+lifetime_randomness = 0.5
+texture = ExtResource("1_avf6k")
+emission_shape = 1
+emission_sphere_radius = 15.0
+spread = 180.0
+initial_velocity_min = 117.31
+initial_velocity_max = 594.23
+color = Color(0.644359, 0, 0.0538919, 1)
+color_ramp = SubResource("Gradient_i1ojj")
+script = ExtResource("2_iws0q")
+
+[node name="Nose" type="Sprite2D" parent="."]
+modulate = Color(1, 0, 0.239216, 1)
+scale = Vector2(1.84211, 0.447368)
+texture = ExtResource("1_avf6k")
+
+[node name="Nose2" type="Sprite2D" parent="Nose"]
+position = Vector2(-2.71429, 11.1765)
+scale = Vector2(0.242857, 0.382353)
+texture = ExtResource("1_avf6k")
+
+[node name="Nose3" type="Sprite2D" parent="Nose/Nose2"]
+position = Vector2(26.8235, -52.6154)
+scale = Vector2(1.91176, 2.34615)
+texture = ExtResource("1_avf6k")

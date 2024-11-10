@@ -26,7 +26,7 @@ void fragment() {
 	vec3 m = mix(col2, color, alpha);
 	COLOR.rgb = m;
 	COLOR.a = color_two.a;
-	
+
 	vec4 dissolve = texture(mask_texture, UV);
 	vec4 main = texture(TEXTURE, UV);
 	COLOR.a = main.a;
