@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bvgq60cmf3ukr"
+path="res://.godot/imported/game start.ogg-249f387cbe41c64f02b386462f12d036.oggvorbisstr"
+
+[deps]
+
+source_file="res://audio/game start.ogg"
+dest_files=["res://.godot/imported/game start.ogg-249f387cbe41c64f02b386462f12d036.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
