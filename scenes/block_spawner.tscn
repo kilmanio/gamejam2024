@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://b350dganfqht3"]
+[gd_scene load_steps=5 format=3 uid="uid://b350dganfqht3"]
 
 [ext_resource type="Script" path="res://scripts/block_spawner.gd" id="1_0veut"]
+[ext_resource type="AudioStream" uid="uid://bohx8apfyoog6" path="res://audio/blockspawn.ogg" id="3_35x8m"]
 [ext_resource type="PackedScene" uid="uid://bktb31ee6yj8k" path="res://scenes/portal.tscn" id="3_dnr3w"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mb1ka"]
@@ -29,3 +30,8 @@ scale = Vector2(0.738213, 0.738213)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Right/Area2D"]
 shape = SubResource("RectangleShape2D_mb1ka")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_35x8m")
+volume_db = -12.0
+pitch_scale = 0.3

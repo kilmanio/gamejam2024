@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/TractorLoop5.ogg-648e6523bae972a81349ffb6645a
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
 bpm=0
 beat_count=0

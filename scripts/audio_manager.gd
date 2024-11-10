@@ -17,6 +17,6 @@ func play_audio(audio_file:Resource, volume:float=0.0, random_pitch:bool=true, p
 	clear_audio_streams()
 	
 func clear_audio_streams():
-	if audio_players.size() > 4:
+	if audio_players.size() > 2:
 		audio_players[0].queue_free()
 		audio_players.remove_at(0)
