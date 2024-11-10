@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://cb1sgodtqtr3y"]
+[gd_scene load_steps=27 format=3 uid="uid://cb1sgodtqtr3y"]
 
 [ext_resource type="Texture2D" uid="uid://dot040y4harte" path="res://graphics/background/sun.png" id="1_3lot0"]
 [ext_resource type="Texture2D" uid="uid://c83hftg55mhn5" path="res://graphics/background/ground2.png" id="2_2afyr"]
@@ -7,13 +7,22 @@
 [ext_resource type="Texture2D" uid="uid://b44838i2iw22s" path="res://graphics/background/ground.png" id="5_sda8o"]
 [ext_resource type="Texture2D" uid="uid://683j8ks4m7ha" path="res://graphics/background/sphinx.png" id="6_7ohte"]
 [ext_resource type="Texture2D" uid="uid://coduwra6v8km5" path="res://graphics/background/ground3.png" id="7_godyt"]
+[ext_resource type="Texture2D" uid="uid://bissxgkkkycss" path="res://graphics/background/cloud.png" id="8_pnaw6"]
 
 [sub_resource type="Gradient" id="Gradient_qv7dp"]
-offsets = PackedFloat32Array(0.279221, 0.681818, 1)
-colors = PackedColorArray(0.560784, 0.309804, 0, 1, 0.247059, 0.654902, 0.745098, 1, 0.560784, 0.87451, 0.952941, 1)
+offsets = PackedFloat32Array(0.0324074, 0.347222, 0.773148)
+colors = PackedColorArray(0.757968, 0.42662, 1.92523e-07, 1, 0.21969, 0.606042, 0.690951, 1, 0.560784, 0.87451, 0.952941, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_ew6ns"]
 gradient = SubResource("Gradient_qv7dp")
+fill_from = Vector2(0.5, 1)
+fill_to = Vector2(0.5, 0)
+
+[sub_resource type="Gradient" id="Gradient_2rq54"]
+colors = PackedColorArray(0.560784, 0.87451, 0.952941, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_vos4a"]
+gradient = SubResource("Gradient_2rq54")
 fill_from = Vector2(0.5, 1)
 fill_to = Vector2(0.5, 0)
 
@@ -27,10 +36,20 @@ fill_from = Vector2(0.545872, 0.720183)
 fill_to = Vector2(0.536697, 0)
 
 [sub_resource type="Gradient" id="Gradient_6f7p8"]
-colors = PackedColorArray(0, 0.458824, 1, 0.254902, 0.807843, 1, 1, 1)
+offsets = PackedFloat32Array(0, 0.50463)
+colors = PackedColorArray(0, 0.458824, 1, 0.0627451, 0.807843, 1, 1, 0.733333)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_f4l15"]
 gradient = SubResource("Gradient_6f7p8")
+fill_from = Vector2(0.529915, 1)
+fill_to = Vector2(0.5, 0)
+
+[sub_resource type="Gradient" id="Gradient_on38j"]
+offsets = PackedFloat32Array(0.268519, 0.527778)
+colors = PackedColorArray(1, 1, 1, 0.231373, 0, 0.458824, 1, 0.254902)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_mawbo"]
+gradient = SubResource("Gradient_on38j")
 fill_from = Vector2(0.5, 1)
 fill_to = Vector2(0.5, 0)
 
@@ -43,11 +62,20 @@ fill_from = Vector2(0.5, 1)
 fill_to = Vector2(0.5, 0)
 
 [sub_resource type="Gradient" id="Gradient_bqknl"]
-offsets = PackedFloat32Array(0.0324675, 1)
-colors = PackedColorArray(1, 0.839216, 0.384314, 0.411765, 1, 1, 0.560784, 0.411765)
+offsets = PackedFloat32Array(0.00925926, 0.416667, 0.759259)
+colors = PackedColorArray(1, 0.839216, 0.384314, 0.2, 1, 1, 0.560784, 0.278431, 0.466667, 1, 0.890196, 0.411765)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_8a2st"]
 gradient = SubResource("Gradient_bqknl")
+fill_from = Vector2(0.5, 1)
+fill_to = Vector2(0.5, 0)
+
+[sub_resource type="Gradient" id="Gradient_p36s4"]
+offsets = PackedFloat32Array(0.462963, 1)
+colors = PackedColorArray(1, 1, 0.560784, 0.411765, 1, 1, 1, 0.152941)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_jwua0"]
+gradient = SubResource("Gradient_p36s4")
 fill_from = Vector2(0.5, 1)
 fill_to = Vector2(0.5, 0)
 
@@ -68,9 +96,14 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Sky" type="Sprite2D" parent="."]
-position = Vector2(576.5, 325)
-scale = Vector2(17.9844, 10.0938)
+position = Vector2(576, -245.5)
+scale = Vector2(25, 28.7969)
 texture = SubResource("GradientTexture2D_ew6ns")
+
+[node name="Sky2" type="Sprite2D" parent="."]
+position = Vector2(3224, -1817)
+scale = Vector2(17.9844, 34.3281)
+texture = SubResource("GradientTexture2D_vos4a")
 
 [node name="TextureRect4" type="TextureRect" parent="."]
 visible = false
@@ -130,9 +163,14 @@ scale = Vector2(0.147057, 0.147057)
 texture = ExtResource("6_7ohte")
 
 [node name="Haze" type="Sprite2D" parent="."]
-position = Vector2(576.5, 325)
-scale = Vector2(17.9844, 10.0938)
+position = Vector2(576, -245.5)
+scale = Vector2(25, 28.7969)
 texture = SubResource("GradientTexture2D_f4l15")
+
+[node name="Haze2" type="Sprite2D" parent="."]
+position = Vector2(4361, -1906)
+scale = Vector2(17.9844, 10.0938)
+texture = SubResource("GradientTexture2D_mawbo")
 
 [node name="TextureRect2" type="TextureRect" parent="."]
 visible = false
@@ -150,9 +188,14 @@ position = Vector2(644, 557)
 texture = ExtResource("7_godyt")
 
 [node name="Fog" type="Sprite2D" parent="."]
-position = Vector2(576.5, 325)
-scale = Vector2(17.9844, 10.0938)
+position = Vector2(576, -245.5)
+scale = Vector2(25, 28.7969)
 texture = SubResource("GradientTexture2D_8a2st")
+
+[node name="Fog2" type="Sprite2D" parent="."]
+position = Vector2(4302, -1178)
+scale = Vector2(18, 10.0938)
+texture = SubResource("GradientTexture2D_jwua0")
 
 [node name="TextureRect3" type="TextureRect" parent="."]
 visible = false
@@ -163,3 +206,52 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("GradientTexture2D_7d8lb")
+
+[node name="Cloud" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.72549)
+position = Vector2(1428, -197)
+scale = Vector2(0.736979, 0.373047)
+texture = ExtResource("8_pnaw6")
+
+[node name="Cloud4" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.72549)
+position = Vector2(-285, -380)
+scale = Vector2(0.736979, 0.373047)
+texture = ExtResource("8_pnaw6")
+
+[node name="Cloud5" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.72549)
+position = Vector2(820, -269)
+scale = Vector2(0.736979, 0.373047)
+texture = ExtResource("8_pnaw6")
+
+[node name="Cloud2" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.72549)
+position = Vector2(832, -92)
+scale = Vector2(0.736979, 0.55957)
+texture = ExtResource("8_pnaw6")
+
+[node name="Cloud6" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.72549)
+position = Vector2(3102, -342.257)
+scale = Vector2(0.736979, 0.55957)
+texture = ExtResource("8_pnaw6")
+
+[node name="Cloud7" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.72549)
+position = Vector2(294, -198)
+scale = Vector2(0.736979, 0.55957)
+texture = ExtResource("8_pnaw6")
+
+[node name="Cloud8" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.72549)
+position = Vector2(573, -815)
+scale = Vector2(2.8763, 1.69189)
+texture = ExtResource("8_pnaw6")
+
+[node name="Cloud3" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.745098)
+position = Vector2(3382, -352.507)
+rotation = -0.368519
+scale = Vector2(0.432735, 0.55957)
+texture = ExtResource("8_pnaw6")

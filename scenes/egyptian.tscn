@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://d02xcfbcq82v4"]
+[gd_scene load_steps=11 format=3 uid="uid://bn6ctqo42h6id"]
 
 [ext_resource type="Texture2D" uid="uid://bsc4iuv5or7dy" path="res://graphics/objects/egyptian.png" id="1_uvigw"]
 
@@ -73,5 +73,5 @@ modulate = Color(0, 0, 0, 1)
 sprite_frames = SubResource("SpriteFrames_3jfhn")
 animation = &"run_right"
 autoplay = "run_right"
-frame_progress = 0.483013
+frame_progress = 0.531287
 speed_scale = 5.0

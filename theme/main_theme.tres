@@ -1,3 +1,7 @@
-[gd_resource type="Theme" format=3 uid="uid://d0xltiooo4ful"]
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://d0xltiooo4ful"]
+
+[ext_resource type="FontFile" uid="uid://c1tu1uhgrnxj8" path="res://theme/fonts/SourGummy-VariableFont_wdth,wght.ttf" id="1_hjl67"]
 
 [resource]
+default_font = ExtResource("1_hjl67")
+Button/font_sizes/font_size = 25
