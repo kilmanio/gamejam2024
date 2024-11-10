@@ -8,5 +8,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if $RayCast2D.is_colliding():
-		#WIN THE GAME
-		pass
+		Transition.transition_in(go_to_level)
+
+func go_to_level():
+	get_tree().change_scene_to_file("res://scenes/endscreen.tscn")

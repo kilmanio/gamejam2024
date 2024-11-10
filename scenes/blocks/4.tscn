@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://b1wi4witdrlw5"]
+
+[ext_resource type="Script" path="res://scripts/block_visuals.gd" id="1_uurg4"]
+[ext_resource type="Material" uid="uid://cm4n2bea80wdj" path="res://shaders/block_shader.tres" id="2_u40gk"]
+[ext_resource type="Texture2D" uid="uid://cxsekf5i3rk3g" path="res://graphics/objects/block4.png" id="3_ehps2"]
+
+[node name="root" type="RigidBody2D" groups=["Block"]]
+z_index = 5
+can_sleep = false
+script = ExtResource("1_uurg4")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = ExtResource("2_u40gk")
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("3_ehps2")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+scale = Vector2(0.3, 0.3)
+polygon = PackedVector2Array(-165, -95, 175, -100, 190, -90, 205, 75, 190, 90, 0, 85, -185, 90, -205, 85, -207.247, -3.08867, -205, -85, -190, -95)

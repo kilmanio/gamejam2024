@@ -1,6 +1,10 @@
 extends Node
 
-var scene_to_instance = preload("res://block.tscn")
+var block_1 = preload("res://scenes/blocks/1.tscn")
+var block_2 = preload("res://scenes/blocks/2.tscn")
+var block_3 = preload("res://scenes/blocks/3.tscn")
+var block_4 = preload("res://scenes/blocks/4.tscn")
+
 var timer = 1
 
 # Called when the node enters the scene tree for the first time.
@@ -18,8 +22,16 @@ func _process(delta: float) -> void:
 		timer = 5
 		spawn_block()
 
+func choose_block() -> Node:
+	match randi() % 4:
+		0: return block_1.instantiate()
+		1: return block_2.instantiate()
+		2: return block_3.instantiate()
+		_: return block_4.instantiate()
+
 func spawn_block():
-	var object = scene_to_instance.instantiate()
+	var object = choose_block()
+	
 	object.position.y = $Left.position.y
 	if randi() % 2 == 0:
 		object.position.x = $Right.position.x
