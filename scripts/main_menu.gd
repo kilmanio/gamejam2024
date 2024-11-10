@@ -9,7 +9,7 @@ func _on_button_start_pressed() -> void:
 	Transition.transition_in(go_to_level)
 
 func go_to_level():
-	get_tree().change_scene_to_file("res://gametest.tscn")
+	get_tree().change_scene_to_file("res://scenes/gametest.tscn")
 
 func change_volume(bus:String, value:float):
 	var bus_index = AudioServer.get_bus_index(bus)

@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://duoo2ne06rheu"]
 
-[ext_resource type="Script" path="res://height_checker.gd" id="1_qmbdo"]
+[ext_resource type="Script" path="res://scripts/height_checker.gd" id="1_qmbdo"]
 
 [node name="HeightChecker" type="Node2D"]
 script = ExtResource("1_qmbdo")
