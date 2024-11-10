@@ -15,7 +15,6 @@ script = ExtResource("1_gkpnp")
 position = Vector2(0, 100)
 
 [node name="BlockSpawner" parent="." instance=ExtResource("2_pqhjv")]
-visible = true
 z_index = 1
 position = Vector2(175, 470)
 

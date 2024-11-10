@@ -1,15 +1,93 @@
-[gd_scene load_steps=17 format=3 uid="uid://3tpn76o4x0w1"]
+[gd_scene load_steps=26 format=3 uid="uid://3tpn76o4x0w1"]
 
 [ext_resource type="PackedScene" uid="uid://cb1sgodtqtr3y" path="res://scenes/background.tscn" id="1_lkj8m"]
 [ext_resource type="Theme" uid="uid://d0xltiooo4ful" path="res://theme/main_theme.tres" id="1_oun2s"]
+[ext_resource type="Script" path="res://scripts/main_menu.gd" id="2_ikr02"]
 [ext_resource type="Script" path="res://scripts/button_manager.gd" id="3_opsx4"]
 [ext_resource type="Script" path="res://scripts/story.gd" id="4_di1fm"]
 [ext_resource type="Texture2D" uid="uid://dycqq0ivushbk" path="res://graphics/background/stars.png" id="4_pgjlo"]
 [ext_resource type="Texture2D" uid="uid://up1vtjfdbl0u" path="res://graphics/objects/shooting_star2.png" id="6_3bcx3"]
 [ext_resource type="Texture2D" uid="uid://b33digtrjpvns" path="res://graphics/objects/shooting_star.png" id="7_o23w4"]
+[ext_resource type="PackedScene" uid="uid://d0rjstwyyqvrc" path="res://scenes/player_gfx.tscn" id="9_7ci6q"]
+
+[sub_resource type="Animation" id="Animation_xnnvf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label2:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ypys4"]
+resource_name = "title"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label2:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.5),
+"transitions": PackedFloat32Array(1, 2, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.2979, 1.2979), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2d6a3"]
+_data = {
+"RESET": SubResource("Animation_xnnvf"),
+"title": SubResource("Animation_ypys4")
+}
+
+[sub_resource type="Animation" id="Animation_acjtc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../PlayerGFX:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(205, 181)]
+}
+
+[sub_resource type="Animation" id="Animation_6jq28"]
+resource_name = "alien"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../PlayerGFX:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(0.307786, 2, 1),
+"update": 0,
+"values": [Vector2(205, 181), Vector2(205, 222), Vector2(205, 181)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_suawi"]
+_data = {
+"RESET": SubResource("Animation_acjtc"),
+"alien": SubResource("Animation_6jq28")
+}
 
 [sub_resource type="Gradient" id="Gradient_ormen"]
-colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0)
+colors = PackedColorArray(0, 0, 0, 0.741176, 0, 0, 0, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_833qu"]
 gradient = SubResource("Gradient_ormen")
@@ -18,6 +96,10 @@ fill_to = Vector2(0.5, 0)
 
 [sub_resource type="LabelSettings" id="LabelSettings_ta48u"]
 font_size = 70
+
+[sub_resource type="LabelSettings" id="LabelSettings_amhxl"]
+font_size = 80
+font_color = Color(1, 0.537255, 0, 1)
 
 [sub_resource type="Gradient" id="Gradient_tx643"]
 colors = PackedColorArray(0.136826, 0.136826, 0.136826, 1, 0, 0, 0, 1)
@@ -29,6 +111,33 @@ fill_to = Vector2(0.5, 0)
 
 [sub_resource type="LabelSettings" id="LabelSettings_t0jn6"]
 font_size = 40
+
+[sub_resource type="Animation" id="Animation_o2oak"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Story/Star:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-59, -42)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Story/Star:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_sx3oy"]
 resource_name = "shooting_star"
@@ -44,20 +153,17 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector2(-59, -42), Vector2(1208, 946)]
 }
-
-[sub_resource type="Animation" id="Animation_o2oak"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Story/Star:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-59, -42)]
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Story/Star:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.0333333, 0.966667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_3e8fo"]
@@ -74,9 +180,26 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_oun2s")
+script = ExtResource("2_ikr02")
+
+[node name="AnimationPlayerTitle" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_2d6a3")
+}
+autoplay = "title"
+
+[node name="AnimationPlayerAlien" type="AnimationPlayer" parent="AnimationPlayerTitle"]
+libraries = {
+"": SubResource("AnimationLibrary_suawi")
+}
+autoplay = "alien"
 
 [node name="Background" parent="." instance=ExtResource("1_lkj8m")]
 layout_mode = 1
+
+[node name="PlayerGFX" parent="." instance=ExtResource("9_7ci6q")]
+position = Vector2(205, 181)
+scale = Vector2(0.336617, 0.336617)
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
@@ -86,6 +209,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("GradientTexture2D_833qu")
+metadata/_edit_lock_ = true
 
 [node name="ColorRect" type="ColorRect" parent="."]
 visible = false
@@ -96,6 +220,24 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.556863)
+
+[node name="Label3" type="Label" parent="."]
+layout_mode = 2
+offset_left = 471.0
+offset_top = 30.0
+offset_right = 743.0
+offset_bottom = 121.0
+text = "But The "
+label_settings = SubResource("LabelSettings_ta48u")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+offset_left = 491.0
+offset_top = 181.0
+offset_right = 664.0
+offset_bottom = 272.0
+text = "Were"
+label_settings = SubResource("LabelSettings_ta48u")
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 1
@@ -111,11 +253,29 @@ offset_bottom = -62.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1, 0.997672)
+metadata/_edit_lock_ = true
 
-[node name="Label" type="Label" parent="CenterContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer"]
 layout_mode = 2
-text = "But The Pyramids Were"
-label_settings = SubResource("LabelSettings_ta48u")
+theme_override_constants/separation = 300
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -172.0
+offset_top = -219.0
+offset_right = 182.0
+offset_bottom = -115.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.079615
+pivot_offset = Vector2(177, 52)
+text = "PYRAMIDS"
+label_settings = SubResource("LabelSettings_amhxl")
 
 [node name="CenterContainer2" type="CenterContainer" parent="."]
 layout_mode = 1
@@ -124,23 +284,24 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -242.5
-offset_top = -324.0
-offset_right = 242.5
+offset_left = -242.0
+offset_top = -163.0
+offset_right = 243.0
 offset_bottom = 324.0
 grow_horizontal = 2
 grow_vertical = 2
+metadata/_edit_lock_ = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer2"]
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="Button" type="Button" parent="CenterContainer2/VBoxContainer"]
+[node name="ButtonStart" type="Button" parent="CenterContainer2/VBoxContainer"]
 custom_minimum_size = Vector2(250, 75)
 layout_mode = 2
 text = "START"
 
-[node name="Button2" type="Button" parent="CenterContainer2/VBoxContainer"]
+[node name="ButtonSettings" type="Button" parent="CenterContainer2/VBoxContainer"]
 layout_mode = 2
 text = "SETTINGS"
 
@@ -172,7 +333,7 @@ horizontal_alignment = 1
 
 [node name="ButtonHandler" type="Node" parent="." node_paths=PackedStringArray("parents")]
 script = ExtResource("3_opsx4")
-parents = [NodePath("../CenterContainer2/VBoxContainer")]
+parents = [NodePath("../CenterContainer2/VBoxContainer"), NodePath("../Story/MarginContainer")]
 
 [node name="Story" type="Control" parent="." node_paths=PackedStringArray("anim_player")]
 visible = false
@@ -184,6 +345,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("4_di1fm")
 anim_player = NodePath("AnimationPlayer")
+metadata/_edit_group_ = true
 
 [node name="TextureRect" type="TextureRect" parent="Story"]
 layout_mode = 1
@@ -248,4 +410,26 @@ libraries = {
 "": SubResource("AnimationLibrary_3e8fo")
 }
 
+[node name="MarginContainer" type="MarginContainer" parent="Story"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/margin_left = 35
+theme_override_constants/margin_top = 35
+theme_override_constants/margin_right = 35
+theme_override_constants/margin_bottom = 35
+
+[node name="ButtonSkip" type="Button" parent="Story/MarginContainer"]
+layout_mode = 2
+text = "Skip"
+
+[connection signal="pressed" from="CenterContainer2/VBoxContainer/ButtonStart" to="." method="_on_button_start_pressed"]
 [connection signal="animation_finished" from="Story/AnimationPlayer" to="Story" method="_on_animation_player_animation_finished"]
+[connection signal="pressed" from="Story/MarginContainer/ButtonSkip" to="Story" method="_on_button_skip_pressed"]
