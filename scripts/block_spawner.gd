@@ -14,12 +14,17 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if $Left/Area2D.has_overlapping_bodies() || $Right/Area2D.has_overlapping_bodies():
-		timer = 5
+		timer = 3
+		$Left/portal/AnimatedSprite2D.modulate = Color(0.55, 0.16, 0.84, 1)
+		$Right/portal/AnimatedSprite2D.modulate = Color(0.55, 0.16, 0.84, 1)
+		
 	else:
 		timer -= delta
+		$Left/portal/AnimatedSprite2D.modulate = Color(0, 1, 0.84, 1)
+		$Right/portal/AnimatedSprite2D.modulate = Color(0, 1, 0.84, 1)
 		
 	if timer <= 0:
-		timer = 5
+		timer = 3
 		spawn_block()
 
 func choose_block() -> Node:
