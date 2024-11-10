@@ -5,6 +5,7 @@
 [ext_resource type="Material" uid="uid://cm4n2bea80wdj" path="res://shaders/block_shader.tres" id="2_tvy0n"]
 
 [node name="root" type="RigidBody2D" groups=["Block"]]
+z_index = 5
 can_sleep = false
 script = ExtResource("1_8cagb")
 
@@ -14,5 +15,6 @@ scale = Vector2(0.2, 0.2)
 texture = ExtResource("2_mgmfs")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+visible = false
 scale = Vector2(0.2, 0.2)
 polygon = PackedVector2Array(-190, -176, 185, -166, 203, -41, 233, 86, 216, 216, 67, 218, -132, 226, -173, 212, -203, 69)
