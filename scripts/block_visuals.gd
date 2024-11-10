@@ -28,3 +28,12 @@ func _process(delta: float) -> void:
 func block_tractored(value):
 	#$Sprite2D.material.set("shader_parameter/speed", 1)
 	$Sprite2D.material.set("shader_parameter/is_tractored", value)
+
+
+func body_collide(body: Node) -> void:
+	print(body)
+	if body.is_in_group("Block"):
+		AudioManager.play_audio(load("res://audio/blockhit.ogg"), -10.0)
+	else:
+		AudioManager.play_audio(load("res://audio/blocksand.ogg"), -15.0)
+		AudioManager.play_audio(load("res://audio/blockhit.ogg"), -15.0)

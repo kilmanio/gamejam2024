@@ -5,6 +5,8 @@ var speed = 10
 @export var direction = 1
 
 @export var particles : PackedScene
+
+var audio = [load("res://audio/slap.ogg"), load("res://audio/slap2.ogg"), load("res://audio/slap3.ogg")]
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -34,3 +36,4 @@ func death():
 	death_particle.emitting = true
 	get_parent().add_child(death_particle)
 	queue_free()
+	AudioManager.play_audio(audio.pick_random(),-6)

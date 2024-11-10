@@ -5,6 +5,9 @@ var movement_value = 0
 
 enum state {IDLE, RIGHT, LEFT}
 
+var audio = [load("res://audio/TractorLoop1.ogg"), load("res://audio/TractorLoop2.ogg"), load("res://audio/TractorLoop3.ogg"),
+load("res://audio/TractorLoop4.ogg"), load("res://audio/TractorLoop5.ogg")]
+
 func _ready() -> void:
 	shader_param(0.0)
 
@@ -26,12 +29,15 @@ func change_state(alien_state):
 			rotation_value = -35
 
 func tractor():
+	$AudioStreamPlayer.stream = audio.pick_random()
+	$AudioStreamPlayer.play()
 	$AnimationPlayer.play("tractor_bounce")
 	var tween = get_tree().create_tween()
 	tween.tween_method(shader_param, 0.0, 1.0, 0.2).set_trans(Tween.TRANS_CUBIC)
 	tween.tween_callback(tween.kill)
 
 func detractor():
+	$AudioStreamPlayer.stop()
 	var tween = get_tree().create_tween()
 	tween.tween_method(shader_param, 1.0, 0, 0.1)
 	tween.tween_callback(tween.kill)

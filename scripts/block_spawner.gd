@@ -38,4 +38,10 @@ func spawn_block():
 	else:
 		object.position.y = $Left.position.y
 	
+	object.contact_monitor = true
+	object.max_contacts_reported = 5
+	object.connect("body_entered", object.body_collide)
+	
 	call_deferred("add_child",object)
+	
+	AudioManager.play_audio(load("res://audio/blockspawn.ogg"), -12, false, 0.3)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://d0rjstwyyqvrc"]
+[gd_scene load_steps=41 format=3 uid="uid://d0rjstwyyqvrc"]
 
 [ext_resource type="Script" path="res://scripts/player_gfx.gd" id="1_q1yf7"]
 [ext_resource type="Texture2D" uid="uid://d4jdxxq33icba" path="res://graphics/player/alien.png" id="1_wcvt6"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://d4ae1yjd8vmfn" path="res://graphics/player/tractor_beam.png" id="2_ulpct"]
 [ext_resource type="Texture2D" uid="uid://bs311b6jhici8" path="res://graphics/player/ufo.png" id="2_y6ykm"]
 [ext_resource type="Shader" path="res://shaders/tractor_beam.gdshader" id="3_yr3bh"]
+[ext_resource type="AudioStream" uid="uid://646187f7saaq" path="res://audio/TractorLoop1.ogg" id="7_yy4lq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xy65b"]
 atlas = ExtResource("1_wcvt6")
@@ -302,3 +303,7 @@ texture = ExtResource("2_y6ykm")
 libraries = {
 "": SubResource("AnimationLibrary_7h2tg")
 }
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_yy4lq")
+volume_db = -6.0

@@ -12,7 +12,7 @@ func _process(delta: float) -> void:
 	pass
 
 func spawn_guy():
-	print("spawning guy")
+	#print("spawning guy")
 	var guy = guys.instantiate()
 	var random_number = randi_range(0,1)
 	if random_number == 0:
