@@ -1,6 +1,6 @@
 extends Node
 
-var scene_to_instance = preload("res://block.tscn")
+var scene_to_instance = preload("res://scenes/block.tscn")
 var timer = 1
 
 # Called when the node enters the scene tree for the first time.
