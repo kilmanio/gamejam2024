@@ -1,7 +1,7 @@
 extends Area2D
 
 var speed = 10
-var direction = 1
+@export var direction = 1
 
 @export var particles : PackedScene
 # Called when the node enters the scene tree for the first time.

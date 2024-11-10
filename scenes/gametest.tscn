@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dnsp5txuw6eto"]
+[gd_scene load_steps=10 format=3 uid="uid://dnsp5txuw6eto"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_u4otg"]
 [ext_resource type="PackedScene" uid="uid://duoo2ne06rheu" path="res://scenes/height_checker.tscn" id="2_0rrsa"]
@@ -6,8 +6,12 @@
 [ext_resource type="PackedScene" uid="uid://cb1sgodtqtr3y" path="res://scenes/background.tscn" id="4_4fjcu"]
 [ext_resource type="PackedScene" uid="uid://crsojgydks7ji" path="res://scenes/ship.tscn" id="5_76c74"]
 [ext_resource type="PackedScene" uid="uid://bn6ctqo42h6id" path="res://scenes/egyptian.tscn" id="7_7xgbn"]
+[ext_resource type="Script" path="res://scripts/guy_manager.gd" id="7_ix5il"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_f8rxp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rd06h"]
+size = Vector2(29, 63)
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_u4otg")
@@ -29,10 +33,6 @@ position = Vector2(474, 131)
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(576, 326)
 
-[node name="Egyptian" parent="." instance=ExtResource("7_7xgbn")]
-position = Vector2(732, 592)
-scale = Vector2(0.391378, 0.391378)
-
 [node name="Boundaries" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries"]
@@ -48,3 +48,56 @@ position = Vector2(1152, 0)
 rotation = -1.5708
 shape = SubResource("WorldBoundaryShape2D_f8rxp")
 
+[node name="GuyManager" type="Node2D" parent="."]
+script = ExtResource("7_ix5il")
+guys = ExtResource("7_7xgbn")
+
+[node name="SpawnLeft" type="Node2D" parent="GuyManager"]
+position = Vector2(-32, 609)
+
+[node name="SpawnRight" type="Node2D" parent="GuyManager"]
+position = Vector2(1185, 609)
+
+[node name="GuyNotAllowedHereArea" type="Area2D" parent="GuyManager"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GuyManager/GuyNotAllowedHereArea"]
+position = Vector2(-78, 591)
+shape = SubResource("RectangleShape2D_rd06h")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="GuyManager/GuyNotAllowedHereArea"]
+position = Vector2(1237, 591)
+shape = SubResource("RectangleShape2D_rd06h")
+
+[node name="Timer" type="Timer" parent="GuyManager"]
+wait_time = 5.0
+autostart = true
+
+[node name="Egyptian" parent="GuyManager" instance=ExtResource("7_7xgbn")]
+position = Vector2(20, 609)
+scale = Vector2(0.4, 0.4)
+
+[node name="Egyptian2" parent="GuyManager" instance=ExtResource("7_7xgbn")]
+position = Vector2(506, 609)
+scale = Vector2(0.4, 0.4)
+
+[node name="Egyptian3" parent="GuyManager" instance=ExtResource("7_7xgbn")]
+position = Vector2(714, 609)
+scale = Vector2(0.4, 0.4)
+direction = -1
+
+[node name="Egyptian4" parent="GuyManager" instance=ExtResource("7_7xgbn")]
+position = Vector2(605, 609)
+scale = Vector2(0.4, 0.4)
+direction = -1
+
+[node name="Egyptian5" parent="GuyManager" instance=ExtResource("7_7xgbn")]
+position = Vector2(296, 609)
+scale = Vector2(0.4, 0.4)
+
+[node name="Egyptian6" parent="GuyManager" instance=ExtResource("7_7xgbn")]
+position = Vector2(884, 609)
+scale = Vector2(0.4, 0.4)
+direction = -1
+
+[connection signal="area_entered" from="GuyManager/GuyNotAllowedHereArea" to="GuyManager" method="_on_guy_not_allowed_here_area_area_entered"]
+[connection signal="timeout" from="GuyManager/Timer" to="GuyManager" method="_on_timer_timeout"]
