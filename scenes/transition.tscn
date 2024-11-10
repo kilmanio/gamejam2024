@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://cignyelu8tryr"]
+
+[ext_resource type="Script" path="res://scenes/transition.gd" id="1_t1qhh"]
+[ext_resource type="Texture2D" uid="uid://dft60b88kb3du" path="res://graphics/ui/triangle.png" id="2_j0hg6"]
+
+[node name="Transition" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_t1qhh")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1e-05, 1e-05)
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/CenterContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+texture = ExtResource("2_j0hg6")
+expand_mode = 1

@@ -1,7 +1,43 @@
-[gd_resource type="Theme" load_steps=2 format=3 uid="uid://d0xltiooo4ful"]
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://d0xltiooo4ful"]
 
 [ext_resource type="FontFile" uid="uid://c1tu1uhgrnxj8" path="res://theme/fonts/SourGummy-VariableFont_wdth,wght.ttf" id="1_hjl67"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8lqqj"]
+bg_color = Color(0.56625, 0.648955, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8l1kc"]
+bg_color = Color(1, 0.676672, 0.476823, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_brhm0"]
+bg_color = Color(0.918917, 0.449904, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
 
 [resource]
 default_font = ExtResource("1_hjl67")
 Button/font_sizes/font_size = 25
+Button/styles/focus = SubResource("StyleBoxFlat_8lqqj")
+Button/styles/hover = SubResource("StyleBoxFlat_8l1kc")
+Button/styles/normal = SubResource("StyleBoxFlat_brhm0")
