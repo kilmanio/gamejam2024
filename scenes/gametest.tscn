@@ -17,7 +17,7 @@ size = Vector2(29, 63)
 script = ExtResource("1_u4otg")
 
 [node name="HeightChecker" parent="." instance=ExtResource("2_0rrsa")]
-position = Vector2(0, 100)
+position = Vector2(0, 230)
 
 [node name="BlockSpawner" parent="." instance=ExtResource("3_sulsw")]
 z_index = 1
